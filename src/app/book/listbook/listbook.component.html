@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-6">
+    <button routerLink="/books/create">Thêm sách mới</button>
+    <table class="table">
+      <thead class="table-dark">
+      <tr>
+        <td>#</td>
+        <td>Tên sách</td>
+        <td>Tác giả</td>
+        <td rowspan="2"></td>
+      </tr>
+      </thead>
+      <ng-container *ngFor="let s of books">
+        <tr>
+          <td>{{s.id}}</td>
+          <td><a [routerLink]="['/books/show',s.id]">{{s.title}}</a></td>
+          <td>{{s.author}}</td>
+          <td>
+            <a [routerLink]="['/books/delete',s.id]">Xóa</a> ||
+            <a [routerLink]="['/books/update',s.id]">Sửa</a>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
